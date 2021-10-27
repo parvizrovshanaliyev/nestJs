@@ -25,3 +25,5 @@
 # Active record vs data mapper patterns
 https://github.com/typeorm/typeorm/blob/master/docs/active-record-data-mapper.md
 
+- create repository : Type ORM doc Repository API
+- getAll : createQueryBuilder
