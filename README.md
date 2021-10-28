@@ -27,3 +27,12 @@ https://github.com/typeorm/typeorm/blob/master/docs/active-record-data-mapper.md
 
 - create repository : Type ORM doc Repository API
 - getAll : createQueryBuilder
+
+# Authentication and Authorization
+
+~ nest g module auth
+
+-credentials and password strengths :
+
+https://gist.github.com/arielweinberger/18a29bfa17072444d45adaeeb8e92ddc
+
