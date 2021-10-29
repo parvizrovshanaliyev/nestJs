@@ -54,6 +54,8 @@ signOptions:{
 expiresIn:3600,
 }
 })
-
 ]
+
+- implementing jwt validation
+~ yarn add @types/passport-jwt
 
