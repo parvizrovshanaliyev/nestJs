@@ -1,14 +1,22 @@
 import {EntityRepository, Repository} from "typeorm";
 import {User} from "./user.entity";
 import {AuthCredentialsDto} from "./dto/auth-credentials.dto";
-import {ConflictException, InternalServerErrorException} from "@nestjs/common";
+import {ConflictException, InternalServerErrorException, UnauthorizedException} from "@nestjs/common";
+import * as bcrypt from "bcrypt";
 
 @EntityRepository(User)
 export class UsersRepository extends Repository<User>{
-   async createAsync(dto:AuthCredentialsDto):Promise<void>{
+   
+    
+    // signUP
+    async createAsync(dto:AuthCredentialsDto):Promise<void>{
        const{username,password}=dto;
-       const entity=this.create({username,password});
-       
+       //hash
+       const salt=await bcrypt.genSalt();
+       const hashedPassword=await bcrypt.hash(password,salt);
+       const entity=this.create({username,password:hashedPassword});
+       console.log(salt);
+       console.log(hashedPassword);
        try {
            await this.save(entity);
        }catch (error){

@@ -6,8 +6,13 @@ import {AuthService} from "./auth.service";
 export class AuthController {
     constructor(private authService:AuthService) {
     }
-    @Post('/signup')
+    @Post('/signUp')
     signUpAsync(@Body() dto:AuthCredentialsDto):Promise<void>{
         return this.authService.signUpAsync(dto);
+    }
+
+    @Post('/signIn')
+    signInAsync(@Body() dto:AuthCredentialsDto):Promise<{ accessToken:string }>{
+        return this.authService.signInAsync(dto);
     }
 }

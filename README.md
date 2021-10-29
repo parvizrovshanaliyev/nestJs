@@ -36,3 +36,24 @@ https://github.com/typeorm/typeorm/blob/master/docs/active-record-data-mapper.md
 
 https://gist.github.com/arielweinberger/18a29bfa17072444d45adaeeb8e92ddc
 
+- securely stores password :
+
+Password hashing with bcrypt
+~ yarn add bcrypt
+https://www.npmjs.com/package/bcrypt
+
+#JWT
+- setting up the jwt module and passport.js
+~ yarn add @nestjs/jwt @nestjs/passport passport passport-jwt
+
+AuthModule - imports : [
+PassportModule.register({defaultStrategy:'jwt'}),
+JwtModule.register({
+secret:'topSecret51',
+signOptions:{
+expiresIn:3600,
+}
+})
+
+]
+
